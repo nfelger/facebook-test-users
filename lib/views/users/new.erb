@@ -1,0 +1,27 @@
+<html>
+<head>
+  <style type="text/css">
+    ul
+    {
+      list-style-type: none;
+      margin: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form action="/users/new" method="post">
+    <ul>
+      <li>
+        <label for="installed">User has installed the app</label>
+        <input name="installed" id="installed" type="checkbox">
+      </li>
+      <li>
+        <label for="permissions">Permissions</label>
+        <input name="permissions" id="permissions" value="read_stream">
+      </li>
+    </ul>
+    <input type="submit" value="Hit me">
+  </form>
+</body>
+</html>
