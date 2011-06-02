@@ -7,7 +7,7 @@ get '/users' do
 end
 
 get '/users/new' do
-  erb :"users/new"
+  erb :"users/new.html"
 end
 
 post '/users/new' do
