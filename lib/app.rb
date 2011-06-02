@@ -1,9 +1,15 @@
 require 'sinatra'
+require 'sinatra/outputbuffer'
 require 'curb-fu'
 require 'json'
 
+helpers Sinatra::OutputBuffer::Helpers
+set :erb, :layout => :'layout.html'
+
 get '/users' do
-  CurbFu.get("https://graph.facebook.com/#{app_id}/accounts/test-users?access_token=#{access_token}").body
+  facebook_response = JSON.parse(CurbFu.get("https://graph.facebook.com/#{app_id}/accounts/test-users?access_token=#{access_token}").body)
+  users = facebook_response["data"]
+  erb :"users/index.html", :locals => { :users => users }
 end
 
 get '/users/new' do

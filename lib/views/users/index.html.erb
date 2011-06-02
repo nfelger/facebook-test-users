@@ -1,0 +1,20 @@
+<% content_for :head do %>
+<% end %>
+
+<% content_for :body do %>
+  <table>
+    <caption>Facebook Test Accounts</caption>
+    <tr>
+      <th>ID</th>
+      <th>Access Token</th>
+      <th>Login url</th>
+    </tr>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user["id"] %></td>
+        <td><%= user["access_token"] %></td>
+        <td><%= user["login_url"] %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

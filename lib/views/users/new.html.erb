@@ -1,5 +1,4 @@
-<html>
-<head>
+<% content_for :head do %>
   <style type="text/css">
     ul
     {
@@ -8,8 +7,9 @@
       padding: 10px;
     }
   </style>
-</head>
-<body>
+<% end %>
+
+<% content_for :body do %>
   <form action="/users/new" method="post">
     <ul>
       <li>
@@ -23,5 +23,5 @@
     </ul>
     <input type="submit" value="Hit me">
   </form>
-</body>
-</html>
+  <</body>
+<% end %>
