@@ -1,4 +1,5 @@
 <% content_for :head do %>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/base.css">
 <% end %>
 
 <% content_for :body do %>
@@ -6,14 +7,25 @@
     <caption>Facebook Test Accounts</caption>
     <tr>
       <th>ID</th>
+      <th>Email</th>
+      <th>Password</th>
       <th>Access Token</th>
       <th>Login url</th>
+      <th>Delete</th>
     </tr>
-    <% users.each do |user| %>
-      <tr>
-        <td><%= user["id"] %></td>
-        <td><%= user["access_token"] %></td>
-        <td><%= user["login_url"] %></td>
+    <% users.each_with_index do |user, index| %>
+      <tr class="<%= (index % 2) == 0 ? "even" : "odd" %>">
+        <td><%= user.open_graph_id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.access_token %></td>
+        <td><%= user.login_url %></td>
+        <td>
+          <form method="post" action="/users/<%= user.open_graph_id %>">
+            <input name="_method" type="hidden" value="delete">
+            <input src="/icons/delete.png" type="image" alt="Delete" value="Delete">
+          </form>
+        </td>
       </tr>
     <% end %>
   </table>

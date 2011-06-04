@@ -1,0 +1,52 @@
+body
+{
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+  direction: ltr;
+}
+
+table
+{
+  border-collapse: collapse;
+  border-spacing: 0px;
+  border-color: gray;
+  background-color: #EDEFF4;
+  border: 1px solid #D8DFEA;
+  display: table;
+  width: 100%;
+}
+
+caption
+{
+  font-size: 1.4em;
+  padding: 1em;
+}
+
+tr:first-child
+{
+  background-color: #DEDEDE;
+  border: 1px solid black;
+}
+
+tr.even
+{
+  background-color: #DFE0FF;
+}
+
+th
+{
+  padding: 3px 5px;
+  text-align: center;
+}
+
+td
+{
+  padding: 3px 5px;
+}
+
+td:last-child
+{
+  text-align: center;
+}

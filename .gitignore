@@ -3,3 +3,4 @@
 config/app_credentials.json
 vendor/ruby
 .rvmrc
+tmp

@@ -3,8 +3,17 @@ source 'http://rubygems.org'
 gem 'rake'
 
 gem 'curb-fu'
+gem 'datamapper'
+gem 'dm-postgres-adapter'
+gem 'dm-sqlite-adapter'
 gem 'json'
 gem 'sinatra'
 gem 'sinatra-outputbuffer'
 
-gem 'shotgun'
+group :development do
+  gem 'shotgun'
+end
+
+group :test do
+  gem 'rspec'
+end
