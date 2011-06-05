@@ -14,7 +14,8 @@ table
   border-color: gray;
   background-color: #EDEFF4;
   border: 1px solid #D8DFEA;
-  display: table;
+  font-size: 0.857em;
+  table-layout: fixed;
   width: 100%;
 }
 
@@ -24,7 +25,27 @@ caption
   padding: 1em;
 }
 
-tr:first-child
+col.opengraph-id
+{
+  width: 11em;
+}
+
+col.email
+{
+  width: 23em;
+}
+
+col.password
+{
+  width: 9em;
+}
+
+col.delete
+{
+  width: 5em;
+}
+
+thead
 {
   background-color: #DEDEDE;
   border: 1px solid black;
@@ -49,4 +70,12 @@ td
 td:last-child
 {
   text-align: center;
+}
+
+
+td.access-token, td.login-url
+{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

@@ -5,28 +5,40 @@
 <% content_for :body do %>
   <table>
     <caption>Facebook Test Accounts</caption>
-    <tr>
-      <th>ID</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Access Token</th>
-      <th>Login url</th>
-      <th>Delete</th>
-    </tr>
-    <% users.each_with_index do |user, index| %>
-      <tr class="<%= (index % 2) == 0 ? "even" : "odd" %>">
-        <td><%= user.open_graph_id %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
-        <td><%= user.access_token %></td>
-        <td><%= user.login_url %></td>
-        <td>
-          <form method="post" action="/users/<%= user.open_graph_id %>">
-            <input name="_method" type="hidden" value="delete">
-            <input src="/icons/delete.png" type="image" alt="Delete" value="Delete">
-          </form>
-        </td>
+    <colgroup>
+      <col class="opengraph-id">
+      <col class="email">
+      <col class="password">
+      <col class="access-token">
+      <col class="login-url">
+      <col class="delete">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Access Token</th>
+        <th scope="col">Login url</th>
+        <th scope="col">Delete</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% users.each_with_index do |user, index| %>
+        <tr class="<%= (index % 2) == 0 ? "even" : "odd" %>">
+          <td><%= user.open_graph_id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.password %></td>
+          <td class="access-token"><%= user.access_token %></td>
+          <td class="login-url"><%= user.login_url %></td>
+          <td>
+            <form method="post" action="/users/<%= user.open_graph_id %>">
+              <input name="_method" type="hidden" value="delete">
+              <input src="/icons/delete.png" type="image" alt="Delete" value="Delete">
+            </form>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 <% end %>
