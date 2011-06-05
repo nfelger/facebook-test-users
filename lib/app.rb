@@ -15,6 +15,10 @@ class FacebookTestUsers < Sinatra::Base
   set :views, File.dirname(__FILE__) + '/views'
   set :public, File.dirname(__FILE__) + '/public'
   
+  get '/' do
+    File.read(File.expand_path('../public/index.html', __FILE__))
+  end
+  
   get '/users' do
     facebook_response = JSON.parse(CurbFu.get("https://graph.facebook.com/#{app_id}/accounts/test-users?access_token=#{access_token}").body)
     users = FacebookTestUser.from_facebook_response(facebook_response["data"])

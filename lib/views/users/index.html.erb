@@ -3,6 +3,24 @@
 <% end %>
 
 <% content_for :body do %>
+  <script>
+  FB.init({
+    appId:172214899505462, cookie:true,
+    status:true, xfbml:true
+  });
+  FB.api('/me?fields=name,accounts', function(user) {
+    if(user != null) {
+      var image = document.getElementById('image');
+      image.src = 'http://graph.facebook.com/' + user.id + '/picture';
+      var name = document.getElementById('name');
+      name.innerHTML = user.name;
+    }
+  });
+  </script>
+  <div align="center">
+    <img id="image"/>
+    <div id="name"></div>
+  </div>
   <table>
     <caption>Facebook Test Accounts</caption>
     <colgroup>
