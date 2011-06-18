@@ -52,6 +52,11 @@ class FacebookTestUsers < Sinatra::Base
     redirect '/users'
   end
   
+  get '/access_token' do
+    token = /access_token=(.*)/.match(CurbFu.get("https://graph.facebook.com/oauth/access_token?callback=?&client_id=#{params[:app_id]}&client_secret=#{params[:app_secret]}&grant_type=client_credentials").body)[1]
+    {:accessToken => token}.to_json
+  end
+  
   def access_token
     @access_token ||= /access_token=(.*)/.match(CurbFu.get("https://graph.facebook.com/oauth/access_token?client_id=#{app_id}&client_secret=#{app_secret}&grant_type=client_credentials").body)[1]
   end
