@@ -11,5 +11,3 @@
   - bad secret
 * Cache secret
 * Get test users from the ruby backend, so their attributes can be inter-filled with db-stored fields like email & password
-* Rename AccessToken Credentials, as it has the token, the app secret and id.
-
