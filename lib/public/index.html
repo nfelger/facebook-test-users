@@ -27,6 +27,46 @@
     
     <script type="text/template" id="application-template">
       App: <%= name %>, Id: <%= id %>
+      <form class="fetchUsers">
+        <input class="appSecret" type="text"></input>
+        <input type="submit"></input>
+      </form>
+      <table id="testUsers<%= id %>">
+        <colgroup>
+          <col class="opengraph-id">
+          <col class="email">
+          <col class="password">
+          <col class="access-token">
+          <col class="login-url">
+          <col class="delete">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Access Token</th>
+            <th scope="col">Login url</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tbody>
+      </table>
+    </script>
+    
+    <script type="text/template" id="test-user-template">
+      <td><%= model.openGraphId %></td>
+      <td><%= model.email %></td>
+      <td><%= model.password %></td>
+      <td class="access-token"><%= model.accessToken %></td>
+      <td class="login-url"><%= model.loginUrl %></td>
+      <td>
+        <form method="post" action="/users/<%= model.openGraphId %>">
+          <input name="_method" type="hidden" value="delete">
+          <input src="/icons/delete.png" type="image" alt="Delete" value="Delete">
+        </form>
+      </td>
     </script>
   </body>
 </html>
