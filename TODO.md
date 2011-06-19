@@ -9,3 +9,4 @@
 * Visual progress feedback when doing async calls.
 * Better FBC auth: don't show button when connected.
 * Bug: deleting multiple rows at once doesn't seem to quite work.
+* Make cookie-caching of app secrets opt-out with a checkbox.
