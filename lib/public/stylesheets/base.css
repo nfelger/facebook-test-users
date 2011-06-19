@@ -25,24 +25,24 @@ caption
   padding: 1em;
 }
 
-col.opengraph-id
+col.opengraphId
 {
   width: 11em;
-}
-
-col.email
-{
-  width: 23em;
-}
-
-col.password
-{
-  width: 9em;
 }
 
 col.delete
 {
   width: 5em;
+}
+
+col.loginUrl
+{
+  width: 9em;
+}
+
+col.accessToken
+{
+  width: 13em;
 }
 
 thead
@@ -65,6 +65,7 @@ th
 td
 {
   padding: 3px 5px;
+  text-align: center;
 }
 
 td:last-child
@@ -73,7 +74,7 @@ td:last-child
 }
 
 
-td.access-token, td.login-url
+td.accessToken, td.loginUrl
 {
   overflow: hidden;
   white-space: nowrap;

@@ -34,11 +34,11 @@
       </form>
       <table id="testUsers<%= id %>">
         <colgroup>
-          <col class="opengraph-id">
+          <col class="opengraphId">
           <col class="email">
           <col class="password">
-          <col class="access-token">
-          <col class="login-url">
+          <col class="accessToken">
+          <col class="loginUrl">
           <col class="delete">
         </colgroup>
         <thead>
@@ -60,8 +60,8 @@
       <td><%= model.openGraphId %></td>
       <td><%= model.email %></td>
       <td><%= model.password %></td>
-      <td class="access-token"><%= model.accessToken %></td>
-      <td class="login-url"><%= model.loginUrl %></td>
+      <td class="accessToken"><%= model.accessToken %></td>
+      <td class="loginUrl"><a href="<%= model.loginUrl %>">Login</a></td>
       <td>
         <form method="post" action="/users/<%= model.openGraphId %>">
           <input name="_method" type="hidden" value="delete">
