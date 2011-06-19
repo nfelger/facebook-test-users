@@ -15,8 +15,6 @@ describe FacebookTestUsers do
       response = case url
       when %r{https://graph.facebook.com/[^/]*/accounts/test-users.*}
         new_user_response
-      when %r{https://graph.facebook.com/oauth/access_token.*}
-        'access_token=faketoken'
       else
         raise "Unregistered url. Can't have that, Dave."
       end
@@ -24,15 +22,12 @@ describe FacebookTestUsers do
     end
   end
   
-  it "should" do
+  it "should persist the test user's password and email" do
     FacebookTestUser.should_receive(:create).with(hash_including({
-      :open_graph_id => 123,
       :email         => 'asd@a.com',
       :password      => 'basketball'
     }))
     
-    post '/users/new', {'permissions' => 'read_stream'}
-    
-    last_response.should be_redirect
+    post '/app/456/test_users', {'access_token' => 'facetoken'}
   end
 end
