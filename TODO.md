@@ -8,3 +8,4 @@
 * Bug: Access token / login url appear to be missing
 * Allow deleting users client-side
 * Allow creating users client-side
+* Bug: re-submitting adds to the list
