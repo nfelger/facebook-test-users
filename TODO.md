@@ -4,7 +4,7 @@
   - FB bad responses
   - backend unavailable
   - bad secret
-* Cache secret
 * Get test users from the ruby backend, so their attributes can be inter-filled with db-stored fields like email & password
 * Bug: Access token / login url appear to be missing
 * Allow deleting users client-side
+* Allow creating users client-side
