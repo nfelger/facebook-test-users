@@ -19,24 +19,20 @@ class FacebookTestUsers < Sinatra::Base
     File.read(File.expand_path('../public/index.html', __FILE__))
   end
   
-  get '/apps/:id/test_users' do |app_id|
+  get '/apps/:app_id/test_users' do |app_id|
     facebook_response = JSON.parse(CurbFu.get("https://graph.facebook.com/#{app_id}/accounts/test-users?access_token=#{params[:access_token]}").body)
     users = FacebookTestUser.from_facebook_response(facebook_response["data"])
     users.to_json
   end
   
-  get '/users/new' do
-    erb :"users/new.html"
-  end
-  
-  post '/users/new' do
+  post '/app/:app_id/test_users' do |app_id|
     facebook_response = JSON.parse(CurbFu.get("https://graph.facebook.com/#{app_id}/accounts/test-users?" +
       "installed=#{params["installed"] ? "true" : "false"}" +
-      "&permissions=#{params["permissions"]}" +
+      "&permissions=#{params["permissions"] || "read_stream"}" +
       "&method=post" +
-      "&access_token=#{access_token}").body)
+      "&access_token=#{params["access_token"]}").body)
     
-    FacebookTestUser.create(
+    user = FacebookTestUser.create(
       :open_graph_id => facebook_response["id"],
       :email         => facebook_response["email"],
       :password      => facebook_response["password"],
@@ -44,12 +40,11 @@ class FacebookTestUsers < Sinatra::Base
       :login_url     => facebook_response["login_url"]
     )
 
-    redirect '/users'
+    user.to_json
   end
   
-  delete '/users/:id' do |id|
-    CurbFu.get("https://graph.facebook.com/#{id}?method=delete&access_token=#{access_token}")
-    redirect '/users'
+  delete '/app/:app_id/test_users/:user_id' do |app_id, user_id|
+    CurbFu.get("https://graph.facebook.com/#{user_id}?method=delete&access_token=#{params["access_token"]}")
   end
   
   get '/access_token' do

@@ -4,7 +4,8 @@
   - FB bad responses
   - backend unavailable
   - bad secret
-* Allow deleting users client-side
-* Allow creating users client-side
-* Bug: re-submitting adds to the list
-* Bug: all test users appear twice.
+* Allow specifying whether app should be installed on user create.
+* Allow specifying custom permissions on user create.
+* Visual progress feedback when doing async calls.
+* Better FBC auth: don't show button when connected.
+* Bug: deleting multiple rows at once doesn't seem to quite work.

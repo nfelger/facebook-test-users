@@ -9,6 +9,7 @@
     <!--<script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js" type="text/javascript"></script>-->
     <script src="http://documentcloud.github.com/backbone/backbone.js" type="text/javascript"></script>
     <script src="https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js" type="text/javascript"></script>
+    <script src="https://raw.github.com/malsup/form/master/jquery.form.js" type="text/javascript"></script>
     <script src="/javascripts/test-users.js" type="text/javascript"></script>
   </head>
   <body>
@@ -27,12 +28,16 @@
     <fb:login-button>Connect</fb:login-button>
     
     <script type="text/template" id="application-template">
+      <img width="16" height="16" src="http://graph.facebook.com/<%= id %>/picture" />
       App: <%= name %>, Id: <%= id %>
       <form class="fetchUsers">
         <input class="appSecret" type="text"></input>
         <input type="submit"></input>
       </form>
-      <table id="testUsers<%= id %>">
+    </script>
+    
+    <script type="text/template" id="test-users-template">
+      <table id="testUsers<%= appId %>">
         <colgroup>
           <col class="opengraphId">
           <col class="email">
@@ -51,11 +56,14 @@
             <th scope="col">Delete</th>
           </tr>
         </thead>
-        <tbody>
-        <tbody>
+        <tbody></tbody>
       </table>
+      <form method="post" action="/app/<%= appId %>/test_users" class="createUser">
+        <input name="access_token" type="hidden" value="<%= accessToken %>"/>
+        <input type="submit" value="Add user…"/>
+      </form>
     </script>
-    
+
     <script type="text/template" id="test-user-template">
       <td><%= model.openGraphId %></td>
       <td><%= model.email %></td>
@@ -63,8 +71,9 @@
       <td class="accessToken"><%= model.accessToken %></td>
       <td class="loginUrl"><a href="<%= model.loginUrl %>">Login</a></td>
       <td>
-        <form method="post" action="/users/<%= model.openGraphId %>">
-          <input name="_method" type="hidden" value="delete">
+        <form method="post" action="/app/<%= credentials.appId %>/test_users/<%= model.openGraphId %>" class="createUser">
+          <input name="_method" type="hidden" value="delete"/>
+          <input name="access_token" type="hidden" value="<%= credentials.accessToken %>"/>
           <input src="/icons/delete.png" type="image" alt="Delete" value="Delete">
         </form>
       </td>
