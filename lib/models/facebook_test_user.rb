@@ -21,4 +21,13 @@ class FacebookTestUser
       end
     end
   end
+  
+  def to_json(*args)
+    { :openGraphId => open_graph_id,
+      :email => email,
+      :password => password,
+      :accessToken => access_token,
+      :loginUrl => login_url
+    }.to_json(*args)
+  end
 end

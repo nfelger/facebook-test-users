@@ -4,7 +4,6 @@
   - FB bad responses
   - backend unavailable
   - bad secret
-* Get test users from the ruby backend, so their attributes can be inter-filled with db-stored fields like email & password
 * Allow deleting users client-side
 * Allow creating users client-side
 * Bug: re-submitting adds to the list

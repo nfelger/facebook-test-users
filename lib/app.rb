@@ -19,10 +19,10 @@ class FacebookTestUsers < Sinatra::Base
     File.read(File.expand_path('../public/index.html', __FILE__))
   end
   
-  get '/users' do
-    facebook_response = JSON.parse(CurbFu.get("https://graph.facebook.com/#{app_id}/accounts/test-users?access_token=#{access_token}").body)
+  get '/apps/:id/test_users' do |app_id|
+    facebook_response = JSON.parse(CurbFu.get("https://graph.facebook.com/#{app_id}/accounts/test-users?access_token=#{params[:access_token]}").body)
     users = FacebookTestUser.from_facebook_response(facebook_response["data"])
-    erb :"users/index.html", :locals => { :users => users }
+    users.to_json
   end
   
   get '/users/new' do
@@ -57,19 +57,19 @@ class FacebookTestUsers < Sinatra::Base
     {:accessToken => token}.to_json
   end
   
-  def access_token
-    @access_token ||= /access_token=(.*)/.match(CurbFu.get("https://graph.facebook.com/oauth/access_token?client_id=#{app_id}&client_secret=#{app_secret}&grant_type=client_credentials").body)[1]
-  end
-  
-  def app_id
-    credentials["app_id"]
-  end
-  
-  def app_secret
-    credentials["app_secret"]
-  end
-  
-  def credentials
-    @credentials ||= JSON.parse(IO.read(File.expand_path('../../config/app_credentials.json', __FILE__)))
-  end
+  # def access_token
+  #   @access_token ||= /access_token=(.*)/.match(CurbFu.get("https://graph.facebook.com/oauth/access_token?client_id=#{app_id}&client_secret=#{app_secret}&grant_type=client_credentials").body)[1]
+  # end
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+  # def app_id
+  #   credentials["app_id"]
+  # end
+  # 
+  # def app_secret
+  #   credentials["app_secret"]
+  # end
+  # 
+  # def credentials
+  #   @credentials ||= JSON.parse(IO.read(File.expand_path('../../config/app_credentials.json', __FILE__)))
+  # end
 end
