@@ -28,8 +28,10 @@
     <fb:login-button>Connect</fb:login-button>
     
     <script type="text/template" id="application-template">
-      <img width="16" height="16" src="http://graph.facebook.com/<%= id %>/picture" />
-      App: <%= name %>, Id: <%= id %>
+      <div>
+        <img width="16" height="16" src="http://graph.facebook.com/<%= id %>/picture" />
+        <p><%= name %> (<%= id %>)</p>
+      </div>
       <form class="fetchUsers">
         <input class="appSecret" type="text"></input>
         <input type="submit"></input>

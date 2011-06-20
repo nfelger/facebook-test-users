@@ -80,3 +80,8 @@ td.accessToken, td.loginUrl
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+p
+{
+  display: inline;
+}
