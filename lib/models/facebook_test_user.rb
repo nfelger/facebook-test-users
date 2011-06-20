@@ -2,7 +2,7 @@ class FacebookTestUser
   include DataMapper::Resource
 
   property :id,            Serial
-  property :open_graph_id, Integer
+  property :open_graph_id, String
   property :email,         String
   property :password,      String
   property :access_token,  String, :length => 255
