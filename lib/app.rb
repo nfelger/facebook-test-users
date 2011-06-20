@@ -43,7 +43,7 @@ class FacebookTestUsers < Sinatra::Base
     user.to_json
   end
   
-  delete '/app/:app_id/test_users/:user_id' do |app_id, user_id|
+  delete '/test_users/:user_id' do |app_id, user_id|
     CurbFu.get("https://graph.facebook.com/#{user_id}?method=delete&access_token=#{params["access_token"]}")
   end
   

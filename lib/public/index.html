@@ -71,7 +71,7 @@
       <td class="accessToken"><%= model.accessToken %></td>
       <td class="loginUrl"><a href="<%= model.loginUrl %>">Login</a></td>
       <td>
-        <form method="post" action="/app/<%= credentials.appId %>/test_users/<%= model.openGraphId %>" class="deleteUser">
+        <form method="post" action="/test_users/<%= model.openGraphId %>" class="deleteUser">
           <input name="_method" type="hidden" value="delete"/>
           <input name="access_token" type="hidden" value="<%= credentials.accessToken %>"/>
           <input src="/icons/delete.png" type="image" alt="Delete" value="Delete">
