@@ -11,3 +11,4 @@
 * Bug: deleting multiple rows at once doesn't seem to quite work.
 * Make cookie-caching of app secrets opt-out with a checkbox.
 * Audit JS src urls used.
+* Make FB app for local development.
