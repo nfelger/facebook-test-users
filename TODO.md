@@ -12,3 +12,4 @@
 * Make cookie-caching of app secrets opt-out with a checkbox.
 * Audit JS src urls used.
 * Make FB app for local development.
+* Don't send plain-text secrets in the cookie.
