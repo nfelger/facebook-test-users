@@ -16,7 +16,6 @@ class FacebookTestUsers < Sinatra::Base
   set :public, File.dirname(__FILE__) + '/public'
   
   get '/' do
-    p settings.environment
     File.read(File.expand_path('../views/index.html', __FILE__)).sub('__FACEBOOK_APP_ID__', config['app_id'])
   end
   

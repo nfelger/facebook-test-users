@@ -1,10 +1,19 @@
 body
 {
+  color: #333;
   font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
   font-size: 14px;
-  color: #333;
-  text-align: left;
-  direction: ltr;
+}
+
+#applications
+{
+  float: left;
+  width: 200px;
+}
+
+#fb-login-button
+{
+  clear: left;
 }
 
 li
@@ -12,12 +21,6 @@ li
   background: #ccc;
   border: 1px grey solid;
   list-style: none;
-}
-
-#applications
-{
-  float: left;
-  width: 300px;
 }
 
 table
@@ -29,6 +32,7 @@ table
   border: 1px solid #D8DFEA;
   font-size: 0.857em;
   table-layout: fixed;
+  width: 800px;
 }
 
 caption
@@ -54,7 +58,7 @@ col.loginUrl
 
 col.accessToken
 {
-  width: 13em;
+  width: 9em;
 }
 
 thead
@@ -76,21 +80,16 @@ th
 
 td
 {
+  overflow: hidden;
   padding: 3px 5px;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 td:last-child
 {
   text-align: center;
-}
-
-
-td.accessToken, td.loginUrl
-{
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 input[type=image]
