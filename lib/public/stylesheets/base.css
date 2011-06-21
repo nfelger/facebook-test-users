@@ -18,7 +18,7 @@ body
 
 li
 {
-  background: #ccc;
+  background: #BDC2DB;
   border: 1px grey solid;
   list-style: none;
 }
@@ -26,19 +26,11 @@ li
 table
 {
   border-collapse: collapse;
-  border-spacing: 0px;
-  border-color: gray;
   background-color: #EDEFF4;
   border: 1px solid #D8DFEA;
   font-size: 0.857em;
   table-layout: fixed;
   width: 800px;
-}
-
-caption
-{
-  font-size: 1.4em;
-  padding: 1em;
 }
 
 col.opengraphId
@@ -67,11 +59,6 @@ thead
   border: 1px solid black;
 }
 
-tr.even
-{
-  background-color: #DFE0FF;
-}
-
 th
 {
   padding: 3px 5px;
@@ -85,20 +72,4 @@ td
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-td:last-child
-{
-  text-align: center;
-}
-
-input[type=image]
-{
-  width: 13px;
-  height: 13px;
-}
-
-p
-{
-  display: inline;
 }
