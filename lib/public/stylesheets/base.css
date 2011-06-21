@@ -7,6 +7,19 @@ body
   direction: ltr;
 }
 
+li
+{
+  background: #ccc;
+  border: 1px grey solid;
+  list-style: none;
+}
+
+#applications
+{
+  float: left;
+  width: 300px;
+}
+
 table
 {
   border-collapse: collapse;
@@ -16,7 +29,6 @@ table
   border: 1px solid #D8DFEA;
   font-size: 0.857em;
   table-layout: fixed;
-  width: 100%;
 }
 
 caption
@@ -79,6 +91,12 @@ td.accessToken, td.loginUrl
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+input[type=image]
+{
+  width: 13px;
+  height: 13px;
 }
 
 p

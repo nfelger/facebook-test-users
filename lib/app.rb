@@ -16,7 +16,8 @@ class FacebookTestUsers < Sinatra::Base
   set :public, File.dirname(__FILE__) + '/public'
   
   get '/' do
-    File.read(File.expand_path('../public/index.html', __FILE__))
+    p settings.environment
+    File.read(File.expand_path('../views/index.html', __FILE__)).sub('__FACEBOOK_APP_ID__', config['app_id'])
   end
   
   get '/apps/:app_id/test_users' do |app_id|
@@ -50,5 +51,11 @@ class FacebookTestUsers < Sinatra::Base
   get '/access_token' do
     token = /access_token=(.*)/.match(CurbFu.get("https://graph.facebook.com/oauth/access_token?callback=?&client_id=#{params[:app_id]}&client_secret=#{params[:app_secret]}&grant_type=client_credentials").body)[1]
     {:accessToken => token}.to_json
+  end
+  
+  private
+  
+  def config
+    @config ||= JSON.parse(IO.read(File.expand_path('../../app_config.json', __FILE__)))[settings.environment.to_s]
   end
 end
