@@ -12,6 +12,7 @@ gem 'sinatra-outputbuffer'
 
 group :development do
   gem 'shotgun'
+  gem 'heroku'
 end
 
 group :test do
