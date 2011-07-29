@@ -22,11 +22,11 @@
     <script type="text/javascript">
       FB.init({appId: __FACEBOOK_APP_ID__, cookie: true, status: true, xfbml: true});
     </script>
-    
+
     <div id="fb-login-button">
       <fb:login-button>Connect</fb:login-button>
     </div>
-    
+
     <script type="text/template" id="application-template">
       <div>
         <img width="16" height="16" src="http://graph.facebook.com/<%= id %>/picture" />
@@ -37,7 +37,7 @@
         <input type="submit" value="Show users"></input>
       </form>
     </script>
-    
+
     <script type="text/template" id="test-users-template">
       <table id="testUsers<%= appId %>">
         <colgroup>
